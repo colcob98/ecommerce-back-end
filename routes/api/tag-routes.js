@@ -5,14 +5,14 @@ const { Tag, Product, ProductTag } = require("../../models");
 
 router.get("/", async (req, res) => {
   try {
-    const tags = Tag.findAll({
+    const tags = await Tag.findAll({
       include: [
         {
           model: Product,
-          through: ProductTag,
-        },
-      ],
+          through: ProductTag
+        }],
     });
+    console.log(tags);
     res.status(200).json(tags);
   } catch (err) {
     res.status(500).json(err);
@@ -21,7 +21,7 @@ router.get("/", async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   try {
-    const singleTag = Tag.findOne({
+    const singleTag = await Tag.findOne({
       where: {
         id: req.params.id,
       },
@@ -53,7 +53,7 @@ router.put("/:id", async (req, res) => {
       where: {
         id: req.params.id,
       },
-    })
+    });
     res.status(200).json(putTag);
   } catch (err) {
     res.status(404).json(err);
@@ -66,10 +66,10 @@ router.delete("/:id", async (req, res) => {
       where: {
         id: req.params.id,
       },
-    })
+    });
     res.status(200).json(deleteTag);
   } catch (err) {
-    res.status(404).json(err)
+    res.status(404).json(err);
   }
 });
 
