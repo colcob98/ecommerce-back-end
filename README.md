@@ -14,3 +14,4 @@ Finally, run the command 'npm start' or 'node server.js', and engage with the ap
 
 A walkthrough video can be seen below. 
 
+[Untitled_ Oct 31, 2023 1_55 PM.webm](https://github.com/colcob98/ecommerce-back-end/assets/112872448/382b46f0-e602-4582-ad9e-ac3268efbc22)
